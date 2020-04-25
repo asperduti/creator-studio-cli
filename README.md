@@ -51,7 +51,6 @@
 - [Usage](#usage)
 - [Roadmap](#roadmap)
 - [Contributing](#contributing)
-- [Contact](#contact)
 
 
 
@@ -125,15 +124,6 @@ Contributions are what make the open source community such an amazing place to b
 
 
 
-<!-- CONTACT -->
-## Contact
-
-Your Name - [@arielsperduti](https://twitter.com/arielsperduti) - email
-
-Project Link: [https://github.com/asperduti/creator-studio-cli](https://github.com/asperduti/creator-studio-cli)
-
-
-
 > **Disclaimer**<a name="disclaimer" />: Please Note that this is a research project. I am by no means responsible for any usage of this tool. Use on your own behalf. I'm also not responsible if your accounts get banned due to extensive use of this tool.
 
 
@@ -149,7 +139,7 @@ Project Link: [https://github.com/asperduti/creator-studio-cli](https://github.c
 [issues-shield]: https://img.shields.io/github/issues/asperduti/creator-studio-cli.svg?style=flat-square
 [issues-url]: https://github.com/asperduti/creator-studio-cli/issues
 [license-shield]: https://img.shields.io/github/license/asperduti/creator-studio-cli.svg?style=flat-square
-[license-url]: https://github.com/asperduti/creator-studio-cli/blob/master/LICENSE.txt
+[license-url]: https://github.com/asperduti/creator-studio-cli/blob/master/LICENSE
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/arielsperduti
 [product-screenshot]: images/screenshot.png
