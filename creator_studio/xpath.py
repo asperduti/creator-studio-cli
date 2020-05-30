@@ -15,8 +15,8 @@ xpath["go_to_instagram_Tab"] = {
 }
 
 xpath["create_post"] = {
-    "create_post_button": "//a[@class='_271k _271l _271m _1qjd _1gwm']",
-    "instagram_feed_button": "//span[text()='Instagram Feed']",
+    "create_post_button": "//button[@class='_271k _271l _271m _1qjd _7tvm _7tv3 _7tv4']",
+    "instagram_feed_button": "//strong[text()='Instagram Feed']",
     "input_account": "//input[@class='_4b7k _4b7k_media-manager-instagram-composer _53rs']",
     "list_account": "//div[text()='{}']",
     "input_message": "//div[@aria-autocomplete='list']",
