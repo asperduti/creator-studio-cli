@@ -48,7 +48,7 @@ xpath["facebook"]["create_post"] = {
     "create_post_button": "//div[text()='Create Post']",
     "create_post_button_2": "//span[text()='Create Post']",
     "input_page": "//input[@class='_4b7k _4b7k_media-manager-composer-search _53rs']",
-    "list_page": "//div[text()='{}']",
+    "list_page": "//span[@class='_4lq7']/div[text()='{}']",
     "input_message": "//div[@role='textbox']",
     "input_file": "//input[@accept='image/*, image/heic, image/heif']",
     "publish_button": "//button[@class='_1mf7  _8bma _4jy0 _4jy3 _4jy1 _51sy selected _42ft']",
@@ -62,3 +62,4 @@ xpath["facebook"]["create_post"] = {
     "schedule_button": "//button[@class='layerConfirm _4jy0 _4jy3 _4jy1 _51sy selected _42ft' and text()='Schedule']",
     "success_message": "//span[text()='Success! You can view your post in the content library.']",
 }
+

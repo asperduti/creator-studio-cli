@@ -90,9 +90,9 @@ def create_post(browser, page, message, file, schedule_options=None):
 
     publish_button = explicit_wait_visibility_of_element_located(browser, xpath["facebook"][create_post.__name__]["publish_button"])
     ActionChains(browser).move_to_element(publish_button).click().perform()
-    sleep(1)
+    #sleep(1)
 
-    success_message = explicit_wait_visibility_of_element_located(browser, xpath["instagram"][create_post.__name__]["success_message"])
+    success_message = explicit_wait_visibility_of_element_located(browser, xpath["facebook"][create_post.__name__]["success_message"])
     if success_message is None:
         print("Error Creating Post")
         return False

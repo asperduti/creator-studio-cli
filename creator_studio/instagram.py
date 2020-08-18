@@ -53,6 +53,7 @@ def create_post(browser, account, message, file, schedule_options=None):
     # First we load the content
     explicit_wait_visibility_of_element_located(browser, xpath["instagram"][create_post.__name__]["add_content_button"])
     add_content_button = browser.find_element_by_xpath(xpath["instagram"][create_post.__name__]["add_content_button"])
+    browser.execute_script("arguments[0].scrollIntoView();", add_content_button)
     ActionChains(browser).move_to_element(add_content_button).click().perform()
     sleep(2)    
     
@@ -62,6 +63,7 @@ def create_post(browser, account, message, file, schedule_options=None):
 
 
     input_message = explicit_wait_visibility_of_element_located(browser, xpath["instagram"][create_post.__name__]["input_message"])
+    browser.execute_script("arguments[0].scrollIntoView();", input_message)
     ActionChains(browser).move_to_element(input_message).click().send_keys(message).perform()
     sleep(1)
 
@@ -98,6 +100,7 @@ def create_post(browser, account, message, file, schedule_options=None):
         return
 
     send_post_button = explicit_wait_visibility_of_element_located(browser, xpath["instagram"][create_post.__name__]["send_post_button"])
+    browser.execute_script("arguments[0].scrollIntoView();", send_post_button)
     ActionChains(browser).move_to_element(send_post_button).click().perform()
     sleep(1)
 
