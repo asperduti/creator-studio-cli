@@ -38,18 +38,20 @@ def create_post(browser, page, message, file, schedule_options=None):
     create_post_button_2 = browser.find_element_by_xpath(xpath["facebook"][create_post.__name__]["create_post_button_2"])
     ActionChains(browser).move_to_element(create_post_button_2).click().perform()
     sleep(1)
-
-    explicit_wait_visibility_of_element_located(browser, xpath["facebook"][create_post.__name__]["input_page"])
-    input_page = browser.find_element_by_xpath(xpath["facebook"][create_post.__name__]["input_page"])
-    for character in page:
-        ActionChains(browser).move_to_element(input_page).click().send_keys(character).perform()
-        sleep(1)
-        list_page = explicit_wait_visibility_of_element_located(browser, xpath["facebook"][create_post.__name__]["list_page"].format(page), timeout=2)
-        if list_page is not None:
-            ActionChains(browser).move_to_element(list_page).click().perform()
+    try:
+        explicit_wait_visibility_of_element_located(browser, xpath["facebook"][create_post.__name__]["input_page"])
+        input_page = browser.find_element_by_xpath(xpath["facebook"][create_post.__name__]["input_page"])
+        for character in page:
+            ActionChains(browser).move_to_element(input_page).click().send_keys(character).perform()
             sleep(1)
-            break
-    sleep(2)
+            list_page = explicit_wait_visibility_of_element_located(browser, xpath["facebook"][create_post.__name__]["list_page"].format(page), timeout=2)
+            if list_page is not None:
+                ActionChains(browser).move_to_element(list_page).click().perform()
+                sleep(1)
+                break
+        sleep(2)
+    except:
+        pass
 
     input_message = explicit_wait_visibility_of_element_located(browser, xpath["facebook"][create_post.__name__]["input_message"])
     ActionChains(browser).move_to_element(input_message).click().send_keys(message).perform()

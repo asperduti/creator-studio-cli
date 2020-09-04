@@ -39,17 +39,20 @@ def create_post(browser, account, message, file, schedule_options=None):
     ActionChains(browser).move_to_element(instagram_feed_button).click().perform()
     sleep(1)
 
-    explicit_wait_visibility_of_element_located(browser, xpath["instagram"][create_post.__name__]["input_account"])
-    input_account = browser.find_element_by_xpath(xpath["instagram"][create_post.__name__]["input_account"])
-    for character in account:
-        ActionChains(browser).move_to_element(input_account).click().send_keys(character).perform()
-        sleep(1)
-        list_account = explicit_wait_visibility_of_element_located(browser, xpath["instagram"][create_post.__name__]["list_account"].format(account), timeout=1)
-        if list_account is not None:
-            ActionChains(browser).move_to_element(list_account).click().perform()
+    try:
+        explicit_wait_visibility_of_element_located(browser, xpath["instagram"][create_post.__name__]["input_account"])
+        input_account = browser.find_element_by_xpath(xpath["instagram"][create_post.__name__]["input_account"])
+        for character in account:
+            ActionChains(browser).move_to_element(input_account).click().send_keys(character).perform()
             sleep(1)
-            break
-    sleep(2)
+            list_account = explicit_wait_visibility_of_element_located(browser, xpath["instagram"][create_post.__name__]["list_account"].format(account), timeout=1)
+            if list_account is not None:
+                ActionChains(browser).move_to_element(list_account).click().perform()
+                sleep(1)
+                break
+        sleep(2)
+    except:
+        pass
     # First we load the content
     explicit_wait_visibility_of_element_located(browser, xpath["instagram"][create_post.__name__]["add_content_button"])
     add_content_button = browser.find_element_by_xpath(xpath["instagram"][create_post.__name__]["add_content_button"])
