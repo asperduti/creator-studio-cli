@@ -1,7 +1,7 @@
 xpath = {}
 
 xpath["is_user_loged"] = {
-    "login_button": "//button[@class='_271k _1qjd']",
+    "login_button": "//div[text()='Facebook Login'",
 }
 
 xpath["login_user"] = {

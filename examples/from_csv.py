@@ -18,5 +18,6 @@ with open(file_name, "r") as file:
                            schedule_options={
                                "date": post[3],
                                "time": post[4]
-                           })
+                           },
+                           social_network="instagram")
 
