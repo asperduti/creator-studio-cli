@@ -41,14 +41,12 @@ def create_post(browser, page, message, file, schedule_options=None):
     try:
         explicit_wait_visibility_of_element_located(browser, xpath["facebook"][create_post.__name__]["input_page"])
         input_page = browser.find_element_by_xpath(xpath["facebook"][create_post.__name__]["input_page"])
-        for character in page:
-            ActionChains(browser).move_to_element(input_page).click().send_keys(character).perform()
+        ActionChains(browser).move_to_element(input_page).click().send_keys(page).perform()
+        sleep(1)
+        list_page = explicit_wait_visibility_of_element_located(browser, xpath["facebook"][create_post.__name__]["list_page"].format(page), timeout=2)
+        if list_page is not None:
+            ActionChains(browser).move_to_element(list_page).click().perform()
             sleep(1)
-            list_page = explicit_wait_visibility_of_element_located(browser, xpath["facebook"][create_post.__name__]["list_page"].format(page), timeout=2)
-            if list_page is not None:
-                ActionChains(browser).move_to_element(list_page).click().perform()
-                sleep(1)
-                break
         sleep(2)
     except:
         pass
@@ -65,7 +63,7 @@ def create_post(browser, page, message, file, schedule_options=None):
     if schedule_options is not None:
 
         schedule_options_hour, schedule_options_minutes, schedule_options_am_pm, = schedule_options["time"].replace(":", " ").split()
-        options_publish_button = browser.find_element_by_xpath(xpath["facebook"][create_post.__name__]["options_publish_button"])
+        options_publish_button = explicit_wait_visibility_of_element_located(browser, xpath["facebook"][create_post.__name__]["options_publish_button"])
         ActionChains(browser).move_to_element(options_publish_button).click().perform()
         sleep(1)
 
