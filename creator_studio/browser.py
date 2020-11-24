@@ -25,11 +25,13 @@ def create_firefox_extension():
 
 
 def get_browser(browser_profile_path=None):
-    """Start the driver and retur it."""
+    """Start the driver and return it."""
     if browser_profile_path is not None:
         firefox_profile = webdriver.FirefoxProfile(browser_profile_path)
     else:
         firefox_profile = webdriver.FirefoxProfile()
+        firefox_profile.set_preference("intl.accept_languages", "en-us")
+        firefox_profile.update_preferences()
 
     browser = webdriver.Firefox(firefox_profile)
     browser.implicitly_wait(10) # seconds
