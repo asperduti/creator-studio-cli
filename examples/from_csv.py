@@ -19,5 +19,4 @@ with open(file_name, "r") as file:
                                "date": post[3],
                                "time": post[4]
                            },
-                           social_network="instagram")
-
+                           social_network=post[5])
