@@ -63,3 +63,12 @@ xpath["facebook"]["create_post"] = {
     "success_message": "//span[text()='Success! You can view your post in the content library.']",
 }
 
+xpath["facebook"]["create_story"] = {
+    "add_story_button": "//span[text()='Add Story']",
+    "add_button": "//span[text()='Add Button']",
+    "share_to_story": "//span[text()='Share to Story']",
+    "input_file": "//input[@class='mkhogb32']",
+    "input_url": "//input[@id='jsc_c_5']",
+    "success_message": "//span[text()='Added to your story. You can view it in the content library.']",
+}
+

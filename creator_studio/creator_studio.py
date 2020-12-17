@@ -33,3 +33,6 @@ class CreatorStudio:
         if social_network == "facebook":
             facebook.go_to_facebook_Tab(self.browser)
             facebook.create_post(self.browser, account, message, file, schedule_options=schedule_options)
+
+    def create_story(self, account, file, url=None):
+        facebook.create_story(self.browser, account, file, url)

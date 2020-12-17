@@ -100,3 +100,58 @@ def create_post(browser, page, message, file, schedule_options=None):
     print("Post Created.")
     browser.refresh()
     return True
+
+
+def create_story(browser, page, file, url=None):
+    """Create a story."""
+    explicit_wait_visibility_of_element_located(browser, xpath["facebook"][create_post.__name__]["create_post_button"])
+    create_post_button = browser.find_element_by_xpath(xpath["facebook"][create_post.__name__]["create_post_button"])
+    ActionChains(browser).move_to_element(create_post_button).click().perform()
+    sleep(2)
+
+    explicit_wait_visibility_of_element_located(browser, xpath["facebook"][create_story.__name__]["add_story_button"])
+    add_story_button = browser.find_element_by_xpath(xpath["facebook"][create_story.__name__]["add_story_button"])
+    ActionChains(browser).move_to_element(add_story_button).click().perform()
+    sleep(1)
+    try:
+        explicit_wait_visibility_of_element_located(browser, xpath["facebook"][create_post.__name__]["input_page"])
+        input_page = browser.find_element_by_xpath(xpath["facebook"][create_post.__name__]["input_page"])
+        ActionChains(browser).move_to_element(input_page).click().send_keys(page).perform()
+        sleep(1)
+        list_page = explicit_wait_visibility_of_element_located(browser, xpath["facebook"][create_post.__name__]["list_page"].format(page), timeout=2)
+        if list_page is not None:
+            ActionChains(browser).move_to_element(list_page).click().perform()
+            sleep(1)
+        sleep(2)
+    except:
+        pass
+
+    input_file = browser.find_element_by_xpath(xpath["facebook"][create_story.__name__]["input_file"])
+    # make the input visible:
+    browser.execute_script('arguments[0].style.display = "block";', input_file)
+
+    input_file.send_keys(file)
+    sleep(1)
+    
+    if url:
+        add_button = explicit_wait_visibility_of_element_located(browser, xpath["facebook"][create_story.__name__]["add_button"])
+        ActionChains(browser).move_to_element(add_button).click().perform()
+
+        input_url = explicit_wait_visibility_of_element_located(browser, xpath["facebook"][create_story.__name__]["input_url"])
+        ActionChains(browser).move_to_element(input_url).click().send_keys(url).perform()
+        sleep(1)
+
+
+    share_to_story = explicit_wait_visibility_of_element_located(browser, xpath["facebook"][create_story.__name__]["share_to_story"])
+    ActionChains(browser).move_to_element(share_to_story).click().perform()
+    sleep(1)
+
+    success_message = explicit_wait_visibility_of_element_located(browser, xpath["facebook"][create_story.__name__]["success_message"])
+    if success_message is None:
+        print("Error Creating Post")
+        return False
+
+    
+    print("Post Created.")
+    browser.refresh()
+    return True
