@@ -2,7 +2,7 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.keys import Keys
 from time import sleep
 
-
+from .browser import explicit_wait_visibility_of_element_located
 from .xpath import xpath
 
 CREATOR_STUDIO_HOMEPAGE = "https://business.facebook.com/creatorstudio/home"
@@ -18,8 +18,9 @@ def login_user(browser, email, password):
         button = browser.find_elements_by_xpath(xpath[is_user_loged.__name__]["login_button"])
         if len(button):
             ActionChains(browser).move_to_element(button[0]).click().perform()
-
-
+            sleep(2)
+    
+    explicit_wait_visibility_of_element_located(browser, xpath[login_user.__name__]["input_email"])
     input_email = browser.find_element_by_xpath(xpath[login_user.__name__]["input_email"])
     ActionChains(browser).move_to_element(input_email).click().send_keys(email).perform()
     sleep(1)
