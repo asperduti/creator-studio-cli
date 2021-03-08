@@ -5,7 +5,7 @@ from time import sleep
 
 from .xpath import xpath
 
-CREATOR_STUDIO_HOMEPAGE = "https://business.facebook.com/creatorstudio/"
+CREATOR_STUDIO_HOMEPAGE = "https://business.facebook.com/creatorstudio/home"
 FACEBOOK_LOGIN_PAGE = "https://www.facebook.com/login/"
 
 def login_user(browser, email, password):

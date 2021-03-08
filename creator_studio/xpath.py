@@ -7,7 +7,7 @@ xpath["is_user_loged"] = {
 xpath["login_user"] = {
     "input_email": "//input[@name='email']",
     "input_password": "//input[@name='pass']",
-    "login_button": "//button[@name='login']",
+    "login_button": "//div[text()='Facebook Login']",
 }
 
 xpath["go_to_instagram_Tab"] = {
