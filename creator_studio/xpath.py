@@ -45,7 +45,7 @@ xpath["facebook"] = {
 }
 
 xpath["facebook"]["create_post"] = {
-    "create_post_button": "//div[text()='Create Post']",
+    "create_post_button": "//div[text()='Create New']",
     "create_post_button_2": "//span[text()='Create Post']",
     "input_page": "//input[@class='_4b7k _4b7k_media-manager-composer-search _53rs']",
     "list_page": "//span[@class='_4lq7']/div[text()='{}']",
@@ -60,7 +60,7 @@ xpath["facebook"]["create_post"] = {
     "input_date": "//input[@placeholder='mm/dd/yyyy']",
     "input_time": "//input[@role='spinbutton']",
     "schedule_button": "//button[@class='layerConfirm _4jy0 _4jy3 _4jy1 _51sy selected _42ft' and text()='Schedule']",
-    "success_message": "//span[text()='Success! You can view your post in the content library.']",
+    "success_message": "//span[text()='Success! Find published posts in the Published tab, and scheduled or drafted posts in the Pre-Published tab.']",
 }
 
 xpath["facebook"]["create_story"] = {
