@@ -24,7 +24,7 @@ xpath["instagram"]["create_post"] = {
     "input_account": "//input[@class='_4b7k _4b7k_media-manager-instagram-composer _53rs']",
     "list_account": "//div[text()='{}']",
     "input_message": "//div[@aria-autocomplete='list']",
-    "add_content_button": "//span[@class='l61y9joe j8otv06s a1itoznt fvlrrmdj svz86pwt jrvjs1jy a53abz89 jvnjaidj']",
+    "add_content_button": "//span[@class='l61y9joe j8otv06s r05nras9 a1itoznt fvlrrmdj svz86pwt a53abz89 jvnjaidj']",
     "input_file": "//input[@class='_n _5f0v']",
     "send_post_button": "//button[@class='_271k _271m _1qjd']",
     "options_publish_button": "//button[@class='_271k _271l _1o4e _271m _1qjd']",
@@ -49,7 +49,7 @@ xpath["facebook"]["create_post"] = {
     "create_post_button_2": "//span[text()='Create Post']",
     "input_page": "//input[@class='_4b7k _4b7k_media-manager-composer-search _53rs']",
     "list_page": "//span[@class='_4lq7']/div[text()='{}']",
-    "input_message": "//div[@role='textbox']",
+    "input_message": "//div[@role='combobox']",
     "input_file": "//input[@accept='image/*, image/heic, image/heif']",
     "publish_button": "//button[@class='_1mf7  _8bma _4jy0 _4jy3 _4jy1 _51sy selected _42ft']",
     "options_publish_button": "//div[@class='_43rm' and text()='Share Now']",
@@ -69,6 +69,6 @@ xpath["facebook"]["create_story"] = {
     "share_to_story": "//span[text()='Share to Story']",
     "input_file": "//input[@class='mkhogb32']",
     "input_url": "//input[@id='jsc_c_5']",
-    "success_message": "//span[text()='Added to your story. You can view it in the content library.']",
+    "success_message": "//span[text()='Your story has been published.']",
 }
 
