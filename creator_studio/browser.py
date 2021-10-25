@@ -1,5 +1,6 @@
 # Based on https://github.com/timgrossmann/InstaPy/blob/c3ad0c869bcaa402a738804b9a20f55a82c12edb/instapy/browser.py
 import os
+import pickle
 import zipfile
 from os.path import sep
 
@@ -52,3 +53,17 @@ def explicit_wait_visibility_of_element_located(browser, xpath, timeout=35):
         return False
     
     return result
+
+
+def save_cookies(browser, path):
+    """Save the current session's cookies."""
+    with open(path, 'wb') as file:
+        pickle.dump(browser.get_cookies(), file)
+
+
+def load_cookies(browser, path):
+    """Load cookies from file."""
+    with open(path, 'rb') as file:
+        cookies = pickle.load(file)
+        for cookie in cookies:
+            browser.add_cookie(cookie)
