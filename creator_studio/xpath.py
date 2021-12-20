@@ -19,12 +19,12 @@ xpath["instagram"] = {
 }
 
 xpath["instagram"]["create_post"] = {
-    "create_post_button": "//div[text()='Create Post']",
+    "create_post_button": "//div[text()='Create post']",
     "instagram_feed_button": "//strong[text()='Instagram Feed']",
     "input_account": "//input[@class='_4b7k _4b7k_media-manager-instagram-composer _53rs']",
     "list_account": "//div[text()='{}']",
     "input_message": "//div[@aria-autocomplete='list']",
-    "add_content_button": "//span[text()='Add Content' and not(@role='heading')]",
+    "add_content_button": "//span[text()='Add content' and not(@role='heading')]",
     "input_file": "//input[@class='_n _5f0v']",
     "send_post_button": "//button[@class='_271k _271m _1qjd']",
     "options_publish_button": "//button[@class='_271k _271l _1o4e _271m _1qjd']",
@@ -45,7 +45,7 @@ xpath["facebook"] = {
 }
 
 xpath["facebook"]["create_post"] = {
-    "create_post_button": "//div[text()='Create New']",
+    "create_post_button": "//div[text()='Create new']",
     "create_post_button_2": "//span[text()='Create Post']",
     "input_page": "//input[@class='_4b7k _4b7k_media-manager-composer-search _53rs']",
     "list_page": "//span[@class='_4lq7']/div[text()='{}']",
@@ -64,7 +64,7 @@ xpath["facebook"]["create_post"] = {
 }
 
 xpath["facebook"]["create_story"] = {
-    "add_story_button": "//span[text()='Add Story']",
+    "add_story_button": "//span[text()='Add story']",
     "add_button": "//span[text()='Add Button']",
     "share_to_story": "//span[text()='Share to Story']",
     "input_file": "//input[@class='mkhogb32']",
