@@ -1,7 +1,7 @@
 xpath = {}
 
 xpath["is_user_loged"] = {
-    "login_button": "//div[text()='Facebook Login']",
+    "login_button": "//div[text()='Facebook login']",
 }
 
 xpath["login_user"] = {
@@ -68,7 +68,7 @@ xpath["facebook"]["create_story"] = {
     "add_button": "//span[text()='Add Button']",
     "share_to_story": "//span[text()='Share to Story']",
     "input_file": "//input[@class='mkhogb32']",
-    "input_url": "//input[@id='jsc_c_5']",
+    "input_url": "//input[@id='jsc_c_7']",
     "success_message": "//span[text()='Your story has been published.']",
 }
 
