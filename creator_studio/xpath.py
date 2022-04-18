@@ -65,8 +65,8 @@ xpath["facebook"]["create_post"] = {
 
 xpath["facebook"]["create_story"] = {
     "add_story_button": "//span[text()='Add story']",
-    "add_button": "//span[text()='Add Button']",
-    "share_to_story": "//span[text()='Share to Story']",
+    "add_button": "//span[text()='Add button']",
+    "share_to_story": "//span[text()='Share to story']",
     "input_file": "//input[@class='mkhogb32']",
     "input_url": "//input[@id='jsc_c_7']",
     "success_message": "//span[text()='Your story has been published.']",
