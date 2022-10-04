@@ -1,6 +1,8 @@
-from selenium.webdriver.common.action_chains import ActionChains
-from selenium.webdriver.common.keys import Keys
 from time import sleep
+
+from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
 
 from .xpath import xpath
 from .browser import explicit_wait_visibility_of_element_located
@@ -15,7 +17,7 @@ def go_to_instagram_Tab(browser):
         return
     
     try:
-        instagram_button = browser.find_element_by_xpath(xpath[go_to_instagram_Tab.__name__]["instagram_button"])
+        instagram_button = browser.find_element(by=By.XPATH, value=xpath[go_to_instagram_Tab.__name__]["instagram_button"])
     except:
         print("Unable to find Instagram Button")
     
@@ -30,18 +32,18 @@ def create_post(browser, account, message, file, schedule_options=None):
     """Create a post."""
 
     explicit_wait_visibility_of_element_located(browser, xpath["instagram"][create_post.__name__]["create_post_button"])
-    create_post_button = browser.find_element_by_xpath(xpath["instagram"][create_post.__name__]["create_post_button"])
+    create_post_button = browser.find_element(by=By.XPATH, value=xpath["instagram"][create_post.__name__]["create_post_button"])
     ActionChains(browser).move_to_element(create_post_button).click().perform()
     sleep(2)
 
     explicit_wait_visibility_of_element_located(browser, xpath["instagram"][create_post.__name__]["instagram_feed_button"])
-    instagram_feed_button = browser.find_element_by_xpath(xpath["instagram"][create_post.__name__]["instagram_feed_button"])
+    instagram_feed_button = browser.find_element(by=By.XPATH, value=xpath["instagram"][create_post.__name__]["instagram_feed_button"])
     ActionChains(browser).move_to_element(instagram_feed_button).click().perform()
     sleep(1)
 
     try:
         explicit_wait_visibility_of_element_located(browser, xpath["instagram"][create_post.__name__]["input_account"])
-        input_account = browser.find_element_by_xpath(xpath["instagram"][create_post.__name__]["input_account"])
+        input_account = browser.find_element(by=By.XPATH, value=xpath["instagram"][create_post.__name__]["input_account"])
         for character in account:
             ActionChains(browser).move_to_element(input_account).click().send_keys(character).perform()
             sleep(1)
@@ -55,12 +57,12 @@ def create_post(browser, account, message, file, schedule_options=None):
         pass
     # First we load the content
     explicit_wait_visibility_of_element_located(browser, xpath["instagram"][create_post.__name__]["add_content_button"])
-    add_content_button = browser.find_element_by_xpath(xpath["instagram"][create_post.__name__]["add_content_button"])
+    add_content_button = browser.find_element(by=By.XPATH, value=xpath["instagram"][create_post.__name__]["add_content_button"])
     browser.execute_script("arguments[0].scrollIntoView();", add_content_button)
     ActionChains(browser).move_to_element(add_content_button).click().perform()
     sleep(2)    
     
-    input_file = browser.find_element_by_xpath(xpath["instagram"][create_post.__name__]["input_file"])
+    input_file = browser.find_element(by=By.XPATH, value=xpath["instagram"][create_post.__name__]["input_file"])
     input_file.send_keys(file)
     sleep(1)
 
@@ -75,7 +77,7 @@ def create_post(browser, account, message, file, schedule_options=None):
     if schedule_options is not None:
 
         schedule_options_hour, schedule_options_minutes, schedule_options_am_pm, = schedule_options["time"].replace(":", " ").split()
-        options_publish_button = browser.find_element_by_xpath(xpath["instagram"][create_post.__name__]["options_publish_button"])
+        options_publish_button = browser.find_element(by=By.XPATH, value=xpath["instagram"][create_post.__name__]["options_publish_button"])
         ActionChains(browser).move_to_element(options_publish_button).click().perform()
         sleep(1)
 
@@ -83,11 +85,11 @@ def create_post(browser, account, message, file, schedule_options=None):
         ActionChains(browser).move_to_element(schedule_option).click().perform()
         sleep(1)
 
-        input_date = browser.find_element_by_xpath(xpath["instagram"][create_post.__name__]["input_date"])
+        input_date = browser.find_element(by=By.XPATH, value=xpath["instagram"][create_post.__name__]["input_date"])
         ActionChains(browser).move_to_element(input_date).click().send_keys(schedule_options["date"]).perform()
         sleep(1)
 
-        hour, minutes, am_pm = browser.find_elements_by_xpath(xpath["instagram"][create_post.__name__]["input_time"])
+        hour, minutes, am_pm = browser.find_elements(by=By.XPATH, value=xpath["instagram"][create_post.__name__]["input_time"])
         hour.send_keys(schedule_options_hour)
         sleep(1)
         minutes.send_keys(schedule_options_minutes)

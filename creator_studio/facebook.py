@@ -1,7 +1,8 @@
-from selenium.webdriver.common.action_chains import ActionChains
-from selenium.webdriver.common.keys import Keys
 from time import sleep
 
+from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
 from .xpath import xpath
 from .browser import explicit_wait_visibility_of_element_located
 
@@ -15,7 +16,7 @@ def go_to_facebook_Tab(browser):
         return
     
     try:
-        facebook_button = browser.find_element_by_xpath(xpath[go_to_facebook_Tab.__name__]["facebook_button"])
+        facebook_button = browser.find_element(by=By.XPATH, value=xpath[go_to_facebook_Tab.__name__]["facebook_button"])
     except:
         print("Unable to find Facebook Button")
     
@@ -30,17 +31,17 @@ def create_post(browser, page, message, file, schedule_options=None):
     """Create a post."""
 
     explicit_wait_visibility_of_element_located(browser, xpath["facebook"][create_post.__name__]["create_post_button"])
-    create_post_button = browser.find_element_by_xpath(xpath["facebook"][create_post.__name__]["create_post_button"])
+    create_post_button = browser.find_element(by=By.XPATH, value=xpath["facebook"][create_post.__name__]["create_post_button"])
     ActionChains(browser).move_to_element(create_post_button).click().perform()
     sleep(2)
 
     explicit_wait_visibility_of_element_located(browser, xpath["facebook"][create_post.__name__]["create_post_button_2"])
-    create_post_button_2 = browser.find_element_by_xpath(xpath["facebook"][create_post.__name__]["create_post_button_2"])
+    create_post_button_2 = browser.find_element(by=By.XPATH, value=xpath["facebook"][create_post.__name__]["create_post_button_2"])
     ActionChains(browser).move_to_element(create_post_button_2).click().perform()
     sleep(1)
     try:
         explicit_wait_visibility_of_element_located(browser, xpath["facebook"][create_post.__name__]["input_page"])
-        input_page = browser.find_element_by_xpath(xpath["facebook"][create_post.__name__]["input_page"])
+        input_page = browser.find_element(by=By.XPATH, value=xpath["facebook"][create_post.__name__]["input_page"])
         ActionChains(browser).move_to_element(input_page).click().send_keys(page).perform()
         sleep(1)
         list_page = explicit_wait_visibility_of_element_located(browser, xpath["facebook"][create_post.__name__]["list_page"].format(page), timeout=2)
@@ -54,7 +55,7 @@ def create_post(browser, page, message, file, schedule_options=None):
     input_message = explicit_wait_visibility_of_element_located(browser, xpath["facebook"][create_post.__name__]["input_message"])
     ActionChains(browser).move_to_element(input_message).click().send_keys(message).perform()
     sleep(1)
-    input_file = browser.find_element_by_xpath(xpath["facebook"][create_post.__name__]["input_file"])
+    input_file = browser.find_element(by=By.XPATH, value=xpath["facebook"][create_post.__name__]["input_file"])
     input_file.send_keys(file)
     sleep(1)
 
@@ -71,12 +72,12 @@ def create_post(browser, page, message, file, schedule_options=None):
         ActionChains(browser).move_to_element(schedule_option).click().perform()
         sleep(1)
 
-        input_date = browser.find_element_by_xpath(xpath["facebook"][create_post.__name__]["input_date"])
+        input_date = browser.find_element(by=By.XPATH, value=xpath["facebook"][create_post.__name__]["input_date"])
         input_date.clear()
         input_date.send_keys(schedule_options["date"])
         sleep(1)
 
-        hour, minutes, am_pm = browser.find_elements_by_xpath(xpath["facebook"][create_post.__name__]["input_time"])
+        hour, minutes, am_pm = browser.find_elements(by=By.XPATH, value=xpath["facebook"][create_post.__name__]["input_time"])
         hour.send_keys(schedule_options_hour)
         sleep(1)
         minutes.send_keys(schedule_options_minutes)
@@ -105,17 +106,17 @@ def create_post(browser, page, message, file, schedule_options=None):
 def create_story(browser, page, file, url=None):
     """Create a story."""
     explicit_wait_visibility_of_element_located(browser, xpath["facebook"][create_post.__name__]["create_post_button"])
-    create_post_button = browser.find_element_by_xpath(xpath["facebook"][create_post.__name__]["create_post_button"])
+    create_post_button = browser.find_element(by=By.XPATH, value=xpath["facebook"][create_post.__name__]["create_post_button"])
     ActionChains(browser).move_to_element(create_post_button).click().perform()
     sleep(2)
 
     explicit_wait_visibility_of_element_located(browser, xpath["facebook"][create_story.__name__]["add_story_button"])
-    add_story_button = browser.find_element_by_xpath(xpath["facebook"][create_story.__name__]["add_story_button"])
+    add_story_button = browser.find_element(by=By.XPATH, value=xpath["facebook"][create_story.__name__]["add_story_button"])
     ActionChains(browser).move_to_element(add_story_button).click().perform()
     sleep(1)
     try:
         explicit_wait_visibility_of_element_located(browser, xpath["facebook"][create_post.__name__]["input_page"])
-        input_page = browser.find_element_by_xpath(xpath["facebook"][create_post.__name__]["input_page"])
+        input_page = browser.find_element(by=By.XPATH, value=xpath["facebook"][create_post.__name__]["input_page"])
         ActionChains(browser).move_to_element(input_page).click().send_keys(page).perform()
         sleep(1)
         list_page = explicit_wait_visibility_of_element_located(browser, xpath["facebook"][create_post.__name__]["list_page"].format(page), timeout=2)
@@ -126,7 +127,7 @@ def create_story(browser, page, file, url=None):
     except:
         pass
 
-    input_file = browser.find_element_by_xpath(xpath["facebook"][create_story.__name__]["input_file"])
+    input_file = browser.find_element(by=By.XPATH, value=xpath["facebook"][create_story.__name__]["input_file"])
     # make the input visible:
     browser.execute_script('arguments[0].style.display = "block";', input_file)
 
@@ -136,6 +137,12 @@ def create_story(browser, page, file, url=None):
     if url:
         add_button = explicit_wait_visibility_of_element_located(browser, xpath["facebook"][create_story.__name__]["add_button"])
         ActionChains(browser).move_to_element(add_button).click().perform()
+
+        option_url = browser.find_element(by=By.CSS_SELECTOR, value="input[type='radio'][value='web link']")
+        sleep(10)
+        print(option_url)
+        option_url.click()
+        #ActionChains(browser).move_to_element(option_url).click().perform()
 
         input_url = explicit_wait_visibility_of_element_located(browser, xpath["facebook"][create_story.__name__]["input_url"])
         ActionChains(browser).move_to_element(input_url).click().send_keys(url).perform()
